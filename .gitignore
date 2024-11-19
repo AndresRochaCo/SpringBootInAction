@@ -1,0 +1,55 @@
+# Maven target directory
+/target/
+
+# Gradle build directory
+/build/
+
+# IntelliJ IDEA project files
+/.idea/
+/*.iml
+/*.ipr
+/*.iws
+
+# VS Code settings
+/.vscode/
+
+# Eclipse project files
+/.project
+/.classpath
+/.settings/
+/*.launch
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+*.jar
+*.war
+*.ear
+
+# Spring Boot application properties (if sensitive)
+application.properties
+application.yml
+
+# Security
+secrets.env
+.env
+
+# Test output
+/test-output/
+
+# Miscellaneous
+*.bak
+*.old
+
+# Ignore compiled class files
+*.class
