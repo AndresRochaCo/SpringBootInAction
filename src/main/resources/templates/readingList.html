@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reading List</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+</head>
+<body>
+<h2>Your Reading List</h2>
+
+<div th:if="${#lists.isEmpty(books)}">
+    <p>You have no books in your book list.</p>
+</div>
+
+<div th:unless="${#lists.isEmpty(books)}">
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>ISBN</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody th:each="book : ${books}">
+        <tr>
+            <td th:text="${book.title}">Title</td>
+            <td th:text="${book.author}">Author</td>
+            <td th:text="${book.isbn}">ISBN</td>
+            <td th:text="${book.description ?: 'No description available'}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<hr/>
+
+<h3>Add a Book</h3>
+<form method="post" th:action="@{/reader}">
+    <label for="title">Title:</label>
+    <input type="text" name="title" size="50" id="title"><br/>
+
+    <label for="author">Author:</label>
+    <input type="text" name="author" size="50" id="author"><br/>
+
+    <label for="isbn">ISBN:</label>
+    <input type="text" name="isbn" size="15" id="isbn"><br/>
+
+    <label for="description">Description:</label>
+    <input type="text" name="description" size="80" id="description"><br/>
+
+    <button type="submit">Add Book</button>
+</form>
+</body>
+</html>

@@ -17,6 +17,12 @@ public class Book {
     private String author;
     private String description;
 
+    //default constructor
+    public Book() {
+
+    }
+
+    //custom constructor
 
     public Long getId() {
         return id;
@@ -65,4 +71,33 @@ public class Book {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
+    // having a to string equals and hashcode helps to follow good practices and better code
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", reader='" + reader + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return id != null && id.equals(book.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
+
 }
